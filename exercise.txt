@@ -1,0 +1,8 @@
+샘플돌려보기
+
+data = load ‘test_ad_data.txt……..’;
+data_b = filter data by was_clicked == 1;
+data_c = group data_b by display_site;
+data_d = foreach data_c generate group as display_site, sum(data_b.cpc) as total_cost;
+data_e = ORDER data_d BY total_cost ASC;
+data_f = limit data_e 3;
